@@ -2,6 +2,7 @@ from fractions import Fraction
 import math
 import numpy as np
 
+
 #スーパークラス　継承して四則演算他の計算と出力を行う
 class Base:   
     result = 0
@@ -102,7 +103,7 @@ class log(Base):
             self.result = 'error (Cause: a <= 0 or a == 1 or b <= 0)'
 
 
-#進数変換 b進法でaを表す
+#進数変換 aをb進法で表す
 class base_convert(Base):
     operation = 'Convert a to Base b:'
 
