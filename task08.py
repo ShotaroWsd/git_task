@@ -1,3 +1,6 @@
+from fractions import Fraction
+
+
 #スーパークラス　継承して四則演算他の計算と出力を行う
 class Base:   
     result = 0
@@ -49,6 +52,15 @@ class div(Base):
             self.result = self.a / self.b
 
 
+#既約分数 a / b
+class irreducible_frac(Base):
+    operation = 'Irreducible Fraction of a / b:'
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = Fraction(self.a, self.b)
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -57,6 +69,7 @@ def main():
     sub(a, b).print_result()
     mul(a, b).print_result()
     div(a, b).print_result()
+    irreducible_frac(a, b).print_result()
 
 if __name__ == '__main__':
     main()
