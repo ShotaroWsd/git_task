@@ -134,7 +134,7 @@ class lcm(Base):
 
 #正接の逆関数 arctan(a / b)
 class arctan(Base):
-    operation = 'arctan(a / b) [deg.] ='
+    operation = 'arctan(a / b) [deg] ='
 
     def __init__(self, a, b):
         super().__init__(a, b)
