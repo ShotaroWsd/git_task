@@ -79,6 +79,15 @@ class power(Base):
         self.result = self.a ** self.b
 
 
+#累乗根 aのb乗根
+class root(Base):
+    operation = 'the b th root of a:'
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = self.a ** (1 / self.b)
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -90,6 +99,8 @@ def main():
     irreducible_frac(a, b).print_result()
     remainder_div(a, b).print_result()
     power(a, b).print_result()
+    root(a, b).print_result()
+
 
 if __name__ == '__main__':
     main()
