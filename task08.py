@@ -19,11 +19,21 @@ class sum(Base):
         self.result = self.a + self.b
 
 
+#差 a - b
+class sub(Base):
+    operation = 'a - b ='
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = self.a - self.b
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
 
     sum(a, b).print_result()
+    sub(a, b).print_result()
 
 if __name__ == '__main__':
     main()
