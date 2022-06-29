@@ -14,6 +14,7 @@ class Base:
     def print_result(self):
         print(self.operation, self.result)
 
+
 #和 a + b
 class sum(Base):
     operation = 'a + b ='
@@ -122,6 +123,15 @@ class gcd(Base):
         self.result = math.gcd(self.a, self.b)
 
 
+#最小公倍数
+class lcm(Base):
+    operation = 'Least Common Multiple:'
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = math.lcm(self.a, self.b)
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -137,7 +147,7 @@ def main():
     log(a, b).print_result()
     base_convert(a, b).print_result()
     gcd(a, b).print_result()
-
+    lcm(a, b).print_result()
 
 if __name__ == '__main__':
     main()
