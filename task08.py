@@ -132,6 +132,15 @@ class lcm(Base):
         self.result = math.lcm(self.a, self.b)
 
 
+#正接の逆関数 arctan(a / b)
+class arctan(Base):
+    operation = 'arctan(a / b) [deg.] ='
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = np.rad2deg(np.arctan(self.a / self.b))
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -148,6 +157,8 @@ def main():
     base_convert(a, b).print_result()
     gcd(a, b).print_result()
     lcm(a, b).print_result()
+    arctan(a, b).print_result()
+
 
 if __name__ == '__main__':
     main()
