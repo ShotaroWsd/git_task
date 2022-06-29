@@ -107,10 +107,19 @@ class base_convert(Base):
 
     def __init__(self, a, b):
         super().__init__(a, b)
-        if 1 < self.a < 37:
+        if 1 < self.b < 37:
             self.result = np.base_repr(self.a, self.b)
         else:
             self.result = 'error (Cause: a < 2 or a > 36)'
+
+
+#最大公約数
+class gcd(Base):
+    operation = 'Greatest Common Divisor:'
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = math.gcd(self.a, self.b)
 
 
 def main():
@@ -127,6 +136,7 @@ def main():
     root(a, b).print_result()
     log(a, b).print_result()
     base_convert(a, b).print_result()
+    gcd(a, b).print_result()
 
 
 if __name__ == '__main__':
