@@ -1,5 +1,5 @@
 from fractions import Fraction
-
+import math
 
 #スーパークラス　継承して四則演算他の計算と出力を行う
 class Base:   
@@ -88,6 +88,18 @@ class root(Base):
         self.result = self.a ** (1 / self.b)
 
 
+#対数 底b, 真数a
+class log(Base):
+    operation = 'log_b a ='
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        if self.a > 0 and self.b > 0 and self.a != 1:
+            self.result = math.log(self.a, self.b)
+        else:
+            self.result = 'error (Cause: a <= 0 or a == 1 or b <= 0)'
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -100,6 +112,7 @@ def main():
     remainder_div(a, b).print_result()
     power(a, b).print_result()
     root(a, b).print_result()
+    log(a, b).print_result()
 
 
 if __name__ == '__main__':
