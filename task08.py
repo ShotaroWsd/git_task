@@ -61,6 +61,15 @@ class irreducible_frac(Base):
         self.result = Fraction(self.a, self.b)
 
 
+#余り a % b
+class remainder_div(Base):
+    operation = 'a % b ='
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = self.a % self.b
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -70,6 +79,7 @@ def main():
     mul(a, b).print_result()
     div(a, b).print_result()
     irreducible_frac(a, b).print_result()
+    remainder_div(a, b).print_result()
 
 if __name__ == '__main__':
     main()
