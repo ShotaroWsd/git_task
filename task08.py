@@ -1,5 +1,6 @@
 from fractions import Fraction
 import math
+import numpy as np
 
 #スーパークラス　継承して四則演算他の計算と出力を行う
 class Base:   
@@ -100,6 +101,18 @@ class log(Base):
             self.result = 'error (Cause: a <= 0 or a == 1 or b <= 0)'
 
 
+#進数変換 b進法でaを表す
+class base_convert(Base):
+    operation = 'Convert a to Base b:'
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        if 1 < self.a < 37:
+            self.result = np.base_repr(self.a, self.b)
+        else:
+            self.result = 'error (Cause: a < 2 or a > 36)'
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -113,6 +126,7 @@ def main():
     power(a, b).print_result()
     root(a, b).print_result()
     log(a, b).print_result()
+    base_convert(a, b).print_result()
 
 
 if __name__ == '__main__':
