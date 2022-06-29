@@ -70,6 +70,15 @@ class remainder_div(Base):
         self.result = self.a % self.b
 
 
+#累乗 a ** b
+class power(Base):
+    operation = 'a ** b ='
+
+    def __init__(self, a, b):
+        super().__init__(a, b)
+        self.result = self.a ** self.b
+
+
 def main():
     a = int(input('Input integer a: '))
     b = int(input('Input integer b: '))
@@ -80,6 +89,7 @@ def main():
     div(a, b).print_result()
     irreducible_frac(a, b).print_result()
     remainder_div(a, b).print_result()
+    power(a, b).print_result()
 
 if __name__ == '__main__':
     main()
